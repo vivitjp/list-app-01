@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AppBody from './AppBody';
+import FakeBody from './fake/FakeBody';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">REST & fetch: HEADER</div>
+      <div className="App-body">
+        <div className="App-body-scroll">
+          <AppBody />
+          <FakeBody />
+        </div>
+      </div>
+      <div className="App-footer">REST & fetch: FOOTER</div>
     </div>
   );
 }
