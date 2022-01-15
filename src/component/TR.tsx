@@ -1,23 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Table.module.css";
 import TD from './TD';
+import { ISamplePersonA } from '../dataTypes/sampleData'
 
-//table data は配列
-interface Props {
-  [index: string]: string
+import { Context } from "../AppBody";
+
+type valTypes = boolean | string | number | undefined
+
+interface ITR {
+  data: ISamplePersonA
 }
 
-const TR: React.VFC<Props> = ({ tr_data }) => {
-  //console.log(tr_data)
-  return <>
+const TR: React.VFC<ITR> = ({ data }) => {
+  //console.log(data)
+
+  // Object.entries(data).map(([name, value]: [string, string | undefined]) => {
+  //   console.log(1, name, name in data, value,)  //data[name]
+  // });
+
+  const ActiveContext = useContext(Context);
+  const dataObj: { [name: string]: boolean | string | number | undefined } = { ...data }
+
+  return (
     <tr>
-      {tr_data && Object.entries(tr_data).map((value: [string, string], index: number) => {
-        return <TD key={index.toString()} td_data={value[1]} />
+      {data && Object.entries(ActiveContext).map(([name, bool]: [string, boolean]) => {
+        return bool ? <TD key={name} data={dataObj[name]} /> : null
       })}
+
+      {/* {data && Object.entries(data).map(([name, value]: [string, valTypes]) => {
+        return ActiveContext[name] ? <TD key={name} data={value} /> : null
+      })} */}
     </tr>
-  </>
+  )
 }
 
-export default TR;
-
-
+export default TR

@@ -1,4 +1,4 @@
-export async function REST_GET_Json(url: string): Promise<{}[] | null> {
+export async function REST_GET_Json(url: string): Promise<any> {
 
   const myInit: { method: string, headers: any, mode: RequestMode } = {
     method: 'GET',

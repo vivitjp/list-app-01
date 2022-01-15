@@ -1,23 +1,22 @@
 import React from "react";
 import "./Table.module.css";
 import TR from "./TR";
+import { ISamplePersonA } from '../dataTypes/sampleData'
 
-interface Props {
-  table_data: {}[]
+interface ITable {
+  data: ISamplePersonA[] | null
 }
 
-//DATA形式: [{NAME:"VALUE",...},...]
-const Table: React.FC<Props> = ({ table_data }) => {
+const Table: React.VFC<ITable> = ({ data }) => {
   return (
     <table>
       <tbody>
-        {table_data && table_data.map((tr_data: any, index: number) =>
-          <TR key={index.toString()} tr_data={tr_data} />
+        {data && data.map((objects: ISamplePersonA, index: number) =>
+          <TR key={index.toString()} data={objects} />
         )}
       </tbody>
     </table>
   )
 }
 
-export default Table;
-//        {console.log(table_data)}
+export default Table

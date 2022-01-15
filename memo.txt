@@ -1,0 +1,11 @@
+interface StrItemProps {
+  item: string[]
+}
+
+const FakeStrItem: React.VFC<StrItemProps> = ({ item }): JSX.Element => {
+  return (
+    <>
+      <div>{item}</div>
+    </>
+  )
+}

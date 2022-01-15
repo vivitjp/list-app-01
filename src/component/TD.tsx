@@ -1,14 +1,32 @@
 import React from "react";
 import "./Table.module.css";
+//import { ISamplePersonA } from '../dataTypes/sampleData'
 
-//obj_data は辞書型
-interface Props {
-  td_data: string
+interface ITD {
+  data: any
 }
 
-const TD: React.VFC<Props> = ({ td_data }) => {
+const getPrimitiveType = (attrName: any) => {
+
+  let fontColor = 'black';
+
+  switch (typeof attrName) {
+    case 'number': fontColor = 'red'; break;
+    //default: 
+  }
+
+  return { color: fontColor }
+}
+
+const getBoolString = (value: boolean) => {
+  return value ? '✔' : ''
+}
+
+const TD: React.VFC<ITD> = ({ data }) => {
   return <>
-    {td_data && <td>{td_data}</td>}
+    {data && <td style={getPrimitiveType(data)}>{
+      typeof data === 'boolean' ? getBoolString(data) : data
+    }</td>}
   </>
 }
 

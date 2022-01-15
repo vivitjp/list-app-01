@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import AppBody from './AppBody';
-import FakeBody from './fake/FakeBody';
+import FakeTable from './fake/FakeTable';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="App-body">
         <div className="App-body-scroll">
           <AppBody />
-          <FakeBody />
+          {/* <FakeTable /> */}
         </div>
       </div>
       <div className="App-footer">REST & fetch: FOOTER</div>
