@@ -1,7 +1,7 @@
 import React from "react";
 import "./Table.module.css";
 import TR from "./TR";
-import { ISamplePersonA } from '../dataTypes/sampleData'
+import { ISamplePersonA } from './dataTypes/sampleData'
 
 interface ITable {
   data: ISamplePersonA[] | null

@@ -1,15 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TR from '../TR';
-import { ISamplePersonA } from '../../dataTypes/sampleData'
+import TD from '../TD';
 
-const mockData: ISamplePersonA = { last_name: "John", first_name: "Smith" }
+const mockData: string = "John Smith"
 
-test.skip('renders learn TR text', () => {
+test('renders learn TD text', () => {
   render(
     <table>
       <tbody>
-        <TR data={mockData} />
+        <tr>
+          <TD data={mockData} />
+        </tr>
       </tbody>
     </table>
   );
@@ -18,5 +19,5 @@ test.skip('renders learn TR text', () => {
   expect(linkElement).toBeInTheDocument();
 
   //eslint-disable-next-line testing-library/no-debugging-utils
-  screen.debug();
+  //screen.debug();
 });

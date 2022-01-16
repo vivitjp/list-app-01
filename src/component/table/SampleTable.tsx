@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext } from "react";
-import { REST_GET_Json } from './lib/lib_db'
-import Table from './component/Table'
+import { REST_GET_Json } from '../../lib/lib_db'
+import Table from './Table'
 import { ISamplePersonA } from './dataTypes/sampleData'
 
 interface IActiveCols {
