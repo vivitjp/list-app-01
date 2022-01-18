@@ -45,6 +45,8 @@
     ]
   },
   "jest": {
-    "testMatch": ["**/__test__/**/*.test.tsx"]
+    "testMatch": [
+      "**/__test__/**/*.test.tsx"
+    ]
   }
 }
