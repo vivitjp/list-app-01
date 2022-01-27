@@ -7,8 +7,10 @@
       "esnext"
     ],
     "allowJs": true,
+    "baseUrl": "/",
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "noImplicitThis": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
