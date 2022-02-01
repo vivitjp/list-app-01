@@ -39,21 +39,21 @@ class Child extends Parent implements Child, OtherChild {
     this._privateProperty = { name: 'Smith' }
     this._privateReadonlyProperty = { name: 'Steve' }
     this.methodProperty = (arg1: Type) => ({ val: 1 });
-    this.overloadedMethod = (arg1: Type) => ({ val: 1 });
+    //this.overloadedMethod = (arg1: Type) => ({ val: 1 });
   }
 
   private _privateMethod(): void { }
 
   methodProperty: (arg1: Type) => ReturnType;
 
-  overloadedMethod(arg1: Type): ReturnType;
-  overloadedMethod(arg1: OtherType): ReturnType;
-  overloadedMethod(arg1: CommonT): CommonReturnT { }
+  // overloadedMethod(arg1: Type): ReturnType;
+  // overloadedMethod(arg1: OtherType): ReturnType;
+  // overloadedMethod(arg1: CommonT): CommonReturnT { }
 
-  static staticMethod(): ReturnType { }
-  subclassedMethod(arg1: Type): ReturnType {
-    super.subclassedMethod(arg1);
-  }
+  // static staticMethod(): ReturnType { }
+  // subclassedMethod(arg1: Type): ReturnType {
+  //   super.subclassedMethod(arg1);
+  // }
 }
 
 export { Child }

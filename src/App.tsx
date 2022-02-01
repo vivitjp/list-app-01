@@ -9,6 +9,11 @@ import SimpleCallback from './component/useCallback/SimpleCallback';
 import MoreCallback from './component/useCallback/MoreCallback';
 import MoreCallback2 from './component/useCallback/MoreCallback2';
 import AppCallbackTS from './component/useCallback/AppCallbackTS';
+import Selectcompo from './component/jsx/Selectcompo';
+import AClass from './component/jsx/AClass';
+import ACompo from 'component/jsx/ACompo';
+import Timer from 'component/jsx/Timer';
+import AForm from 'component/jsx/AForm';
 
 function App() {
   return (
@@ -22,10 +27,15 @@ function App() {
           {false && <AppContextMin />}
           {false && <AppRef />}
           {false && <AppCallback />}
-          {true && <AppCallbackTS />}
+          {false && <AppCallbackTS />}
           {false && <SimpleCallback />}
           {false && <MoreCallback />}
           {false && <MoreCallback2 />}
+          {false && <Selectcompo />}
+          {false && <AClass />}
+          {false && <ACompo />}
+          {false && <Timer />}
+          {true && <AForm />}
         </div>
       </div>
       <div className="App-footer">REST & fetch: FOOTER</div>

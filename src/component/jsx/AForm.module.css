@@ -1,0 +1,47 @@
+.formBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.formSet {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.formLabel {
+  box-sizing: border-box;
+  width: 20%;
+  padding: 2px;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+  border-bottom: 1px solid #AAA;
+}
+
+.formItem {
+  box-sizing: border-box;
+  padding: 2px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.divline {
+  width: 100%;
+  margin: 20px 0;
+  border: none;
+  border-bottom: 1px solid #AAA;
+}
