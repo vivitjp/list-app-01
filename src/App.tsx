@@ -14,6 +14,9 @@ import AClass from './component/jsx/AClass';
 import ACompo from 'component/jsx/ACompo';
 import Timer from 'component/jsx/Timer';
 import AForm from 'component/jsx/AForm';
+import Login from 'component/jsx/Login';
+import AxiosGet from 'component/jsx/AxiosGet';
+import User from 'component/jsx/User';
 
 function App() {
   return (
@@ -35,7 +38,10 @@ function App() {
           {false && <AClass />}
           {false && <ACompo />}
           {false && <Timer />}
-          {true && <AForm />}
+          {false && <AForm />}
+          {false && <Login />}
+          {false && <AxiosGet />}
+          {true && <User id={1} />}
         </div>
       </div>
       <div className="App-footer">REST & fetch: FOOTER</div>
