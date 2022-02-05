@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 
 import ACompo from '../ACompo'
 
-describe("App components", () => {
+describe.skip("App components", () => {
   test("render App components", () => {
     const { getByLabelText, queryAllByTestId } = render(<ACompo />);
 

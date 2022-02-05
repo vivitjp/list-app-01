@@ -4,7 +4,7 @@ import TD from '../TD';
 
 const mockData: string = "John Smith"
 
-test('renders learn TD text', () => {
+test.skip('renders learn TD text', () => {
   render(
     <table>
       <tbody>

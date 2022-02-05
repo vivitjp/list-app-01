@@ -49,7 +49,7 @@
   },
   "jest": {
     "testMatch": [
-      "**/__test__/**/*.test.tsx"
+      "**/__test__/**/*.test.(ts|tsx|js)"
     ]
   }
 }

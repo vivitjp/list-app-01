@@ -17,6 +17,7 @@ import AForm from 'component/jsx/AForm';
 import Login from 'component/jsx/Login';
 import AxiosGet from 'component/jsx/AxiosGet';
 import User from 'component/jsx/User';
+import RandomApp from 'component/mocks/RandomApp';
 
 function App() {
   return (
@@ -41,7 +42,8 @@ function App() {
           {false && <AForm />}
           {false && <Login />}
           {false && <AxiosGet />}
-          {true && <User id={1} />}
+          {false && <User id={1} />}
+          {true && <RandomApp />}
         </div>
       </div>
       <div className="App-footer">REST & fetch: FOOTER</div>
