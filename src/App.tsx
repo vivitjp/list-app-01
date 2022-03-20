@@ -4,11 +4,10 @@ import FakeTable from "./component/fake/FakeTable"
 import AppContext from "./component/useContext/AppContext"
 import AppContextMin from "./component/useContextMin/AppContextMin"
 import AppRef from "./component/useRef/AppRef"
-import AppCallback from "./component/useCallback/AppCallback"
-import SimpleCallback from "./component/useCallback/SimpleCallback"
-import MoreCallback from "./component/useCallback/MoreCallback"
-import MoreCallback2 from "./component/useCallback/MoreCallback2"
-import AppCallbackTS from "./component/useCallback/AppCallbackTS"
+import { Callback1 } from "./component/useCallback/Callback1"
+import { Callback2 } from "./component/useCallback/Callback2"
+import { Callback3 } from "./component/useCallback/Callback3"
+import { Callback4 } from "./component/useCallback/Callback4"
 import Selectcompo from "./component/jsx/Selectcompo"
 import AClass from "./component/jsx/AClass"
 import ACompo from "component/jsx/ACompo"
@@ -31,12 +30,11 @@ function App() {
           {false && <AppContext />}
           {false && <AppContextMin />}
           {false && <AppRef />}
-          {true && <CallbackData />}
-          {false && <AppCallback />}
-          {false && <AppCallbackTS />}
-          {false && <SimpleCallback />}
-          {false && <MoreCallback />}
-          {false && <MoreCallback2 />}
+          {false && <CallbackData />}
+          {true && <Callback1 />}
+          {false && <Callback2 />}
+          {false && <Callback3 />}
+          {false && <Callback4 />}
           {false && <Selectcompo />}
           {false && <AClass />}
           {false && <ACompo />}

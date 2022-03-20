@@ -1,30 +1,42 @@
-import React, { useState, useCallback, useMemo } from 'react'
+import React, { useState, useCallback, useMemo } from "react"
 
 //Buttonコンポーネント(子)
 const Button = React.memo(({ handler, children }) => {
-  console.log("Button:", children);
-  return <div><button onClick={handler}>{children}</button></div>
-});
+  console.log("Button:", children)
+  return (
+    <div>
+      <button onClick={handler}>{children}</button>
+    </div>
+  )
+})
 
 //Buttonコンポーネント(子)
 const Input = React.memo(({ handler, value }) => {
-  console.log("Input:", value);
-  return <div><input type="text" onChange={handler} value={value} /></div>
-});
+  console.log("Input:", value)
+  return (
+    <div>
+      <input type="text" onChange={handler} value={value} />
+    </div>
+  )
+})
 
 //: React.ChangeEvent<HTMLInputElement>
-const AppCallback = () => {
+export const Callback2 = () => {
   const [count, setCount] = useState(0)
-  const [name, setName] = useState({ lastName: '', firstName: '' })
+  const [name, setName] = useState({ lastName: "", firstName: "" })
 
-  const setHandlerFirst = (e) => { setName({ ...name, firstName: e.target.value }) }
-  const setHandlerLast = (e) => { setName({ ...name, lastName: e.target.value }) }
+  const setHandlerFirst = (e) => {
+    setName({ ...name, firstName: e.target.value })
+  }
+  const setHandlerLast = (e) => {
+    setName({ ...name, lastName: e.target.value })
+  }
 
-  const incCounter = () => setCount(n => n + 1);
-  const incCounterUC = useCallback(() => setCount(n => n + 1), []);
+  const incCounter = () => setCount((n) => n + 1)
+  const incCounterUC = useCallback(() => setCount((n) => n + 1), [])
 
-  const resCounter = () => setCount(0);
-  const resCounterUC = useCallback(() => setCount(0), []);
+  const resCounter = () => setCount(0)
+  const resCounterUC = useCallback(() => setCount(0), [])
 
   return (
     <>
@@ -44,5 +56,3 @@ const AppCallback = () => {
     </>
   )
 }
-
-export default AppCallback
