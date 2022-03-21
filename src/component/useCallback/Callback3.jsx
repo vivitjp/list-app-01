@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from "react"
 import "./style.css"
 
-let tmpHandleClickCB: () => void
-let tmpHandleClick2: () => void
+let tmpHandleClickCB
+let tmpHandleClick2
 
-export const Callback3: React.FC = () => {
+export const Callback3 = () => {
   const [countCB, setCountCB] = useState(0)
   const double1 = useMemo(() => {
     console.log("double CB")
@@ -22,7 +22,7 @@ export const Callback3: React.FC = () => {
   console.log("------")
 
   const [count2, setCount2] = useState(0)
-  const dobule2Func = (i: number) => {
+  const dobule2Func = (i) => {
     console.log("double_2")
     return i * 2
   }
