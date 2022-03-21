@@ -7,7 +7,6 @@ import AppRef from "./component/useRef/AppRef"
 import { Callback1 } from "./component/useCallback/Callback1"
 import { Callback2 } from "./component/useCallback/Callback2"
 import { Callback3 } from "./component/useCallback/Callback3"
-import { Callback4 } from "./component/useCallback/Callback4"
 import Selectcompo from "./component/jsx/Selectcompo"
 import AClass from "./component/jsx/AClass"
 import ACompo from "component/jsx/ACompo"
@@ -32,9 +31,8 @@ function App() {
           {false && <AppRef />}
           {false && <CallbackData />}
           {true && <Callback1 />}
-          {false && <Callback2 />}
-          {false && <Callback3 />}
-          {false && <Callback4 />}
+          {true && <Callback2 />}
+          {true && <Callback3 />}
           {false && <Selectcompo />}
           {false && <AClass />}
           {false && <ACompo />}

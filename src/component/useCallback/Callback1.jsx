@@ -1,7 +1,5 @@
 import React, { useState, useCallback } from "react"
 
-const cssParts = { display: "flex", flexDirection: "row", marginLeft: "10px" }
-
 const Count = React.memo(({ name, counter, color }) => {
   console.log(`%cCount ${name}`, `color:${color}`)
   return (
@@ -26,14 +24,6 @@ const Button = React.memo(({ handleClick, name, color, withE = false }) => {
     </div>
   )
 })
-
-const cssDiv = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContenst: "start",
-  alignItems: "center",
-  padding: "5px",
-}
 
 export const Callback1 = () => {
   console.log(`%cCallback1`, "color:red")
@@ -89,4 +79,25 @@ export const Callback1 = () => {
       </div>
     </>
   )
+}
+
+const cssParts = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  marginLeft: "10px",
+  padding: "5px",
+  minWidth: "100px",
+  width: "100%",
+  border: "1px solid #EEE",
+}
+
+const cssDiv = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "start",
+  alignItems: "center",
+  padding: "5px",
+  border: "1px solid #EEE",
 }

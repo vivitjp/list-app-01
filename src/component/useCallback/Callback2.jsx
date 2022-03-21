@@ -1,58 +1,85 @@
 import React, { useState, useCallback, useMemo } from "react"
 
-//Buttonコンポーネント(子)
-const Button = React.memo(({ handler, children }) => {
-  console.log("Button:", children)
+//====================================
+// Button
+//====================================
+const Input = React.memo(({ idx, handler, value, css = {} }) => {
+  console.log(
+    `%cInput(${idx}): ${value}`,
+    `color:${idx === 1 ? "red" : "blue"}`
+  )
   return (
-    <div>
-      <button onClick={handler}>{children}</button>
-    </div>
+    <input
+      type="text"
+      onChange={handler}
+      defaultValue={value}
+      style={{ ...cssParts, ...css }}
+    />
   )
 })
 
-//Buttonコンポーネント(子)
-const Input = React.memo(({ handler, value }) => {
-  console.log("Input:", value)
-  return (
-    <div>
-      <input type="text" onChange={handler} value={value} />
-    </div>
-  )
-})
-
-//: React.ChangeEvent<HTMLInputElement>
+//====================================
+// Main
+//====================================
 export const Callback2 = () => {
-  const [count, setCount] = useState(0)
   const [name, setName] = useState({ lastName: "", firstName: "" })
 
-  const setHandlerFirst = (e) => {
-    setName({ ...name, firstName: e.target.value })
-  }
-  const setHandlerLast = (e) => {
-    setName({ ...name, lastName: e.target.value })
-  }
+  const handleFirst = useCallback(
+    (e) => {
+      console.log(`%chandleFirst`, "color:orange")
+      setName({ ...name, firstName: e.target.value })
+    },
+    [name]
+  )
 
-  const incCounter = () => setCount((n) => n + 1)
-  const incCounterUC = useCallback(() => setCount((n) => n + 1), [])
-
-  const resCounter = () => setCount(0)
-  const resCounterUC = useCallback(() => setCount(0), [])
+  const handleLast = useCallback(
+    (e) => {
+      console.log(`%chandleLast`, "color:orange")
+      setName({ ...name, lastName: e.target.value })
+    },
+    [name]
+  )
 
   return (
     <>
-      <p>{`${count}回クリック`}</p>
-      <Button handler={incCounterUC}>ボタン(useCallback)</Button>
-      <Button handler={incCounter}>ボタン</Button>
-      <Button handler={resCounterUC}>リセット(useCallback)</Button>
-      <Button handler={resCounter}>リセット</Button>
-
-      <hr style={{ margin: "20px", color: "white" }} />
-
-      <p>{`私の名前は${name.lastName} ${name.firstName}です`}</p>
-      <form>
-        <Input value={name.firstName} handler={setHandlerFirst} />
-        <Input value={name.lastName} handler={setHandlerLast} />
-      </form>
+      <div style={cssDiv}>
+        <div
+          style={cssParts}
+        >{`私の名前は${name.lastName} ${name.firstName}です`}</div>
+        <Input
+          idx={1}
+          value={name.firstName}
+          handler={handleFirst}
+          css={{ flexShrink: "2" }}
+        />
+        <Input
+          idx={2}
+          value={name.lastName}
+          handler={handleLast}
+          css={{ flexShrink: "2" }}
+        />
+      </div>
     </>
   )
+}
+
+const cssParts = {
+  display: "flex",
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "start",
+  marginLeft: "10px",
+  padding: "5px",
+  minWidth: "100px",
+  width: "100%",
+  border: "1px solid #EEE",
+}
+
+const cssDiv = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "start",
+  alignItems: "center",
+  padding: "5px",
+  border: "1px solid #EEE",
 }
