@@ -10,7 +10,7 @@ const CompoMemo = memo(({ value }) => {
   return <div>Memo {value}</div>
 })
 
-export const Callback = () => {
+export const Memo = () => {
   const memoVal = useRef(1)
   const [count, setCount] = useState(0)
 

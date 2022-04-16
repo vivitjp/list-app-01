@@ -4,7 +4,7 @@ import FakeTable from "./component/fake/FakeTable"
 import AppContext from "./component/useContext/AppContext"
 import AppContextMin from "./component/useContextMin/AppContextMin"
 import AppRef from "./component/useRef/AppRef"
-import { Callback } from "./component/React.memo/memo"
+import { Memo } from "./component/React.memo/memo"
 import { Callback1 } from "./component/useCallback/Callback1"
 import Selectcompo from "./component/jsx/Selectcompo"
 import AClass from "./component/jsx/AClass"
@@ -42,8 +42,7 @@ function App() {
         {false && <AppRef />}
         {false && <UseCallback />}
         {false && <CallbackData />}
-        {false && <Callback />}
-        {false && <Callback1 />}
+        {true && <Callback1 />}
         {false && <Selectcompo />}
         {false && <AClass />}
         {false && <ACompo />}
@@ -55,8 +54,9 @@ function App() {
         {false && <RandomApp />}
         {false && <IndexCustomHooks />}
         {false && <UseReducer />}
+        {false && <Memo />}
         {false && <UseMemo />}
-        {true && <UseMemo2 />}
+        {false && <UseMemo2 />}
         {false && <UseRefForwarder />}
       </div>
       <div className="relative bottom-0 flex flex-row justify-center items-center w-full py-3 m-0 text-base bg-slate-300 text-gray-400 ">

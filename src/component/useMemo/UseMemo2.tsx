@@ -1,26 +1,26 @@
+import React from "react"
 import { useEffect, useMemo, useState } from "react"
 
-const classNameBtn = "flex flex-1 border justify-center"
-const classNameDiv = "flex flex-1 border justify-center"
+const className = "flex flex-1 border justify-center"
 
-const Heavy1 = ({ a, b }: { a: number; b: number }): JSX.Element => {
+const Heavy1 = ({ a, b }: { a: number; b: number }) => {
   //Memo で返す value はステート(制御された変数)扱いになる。
+  console.log("Heavy1")
   const value = useMemo(() => {
-    console.log("New Power1")
+    console.log("Heavy1 UseMemo=useEffect[]")
     return a ** b
   }, [a, b])
-  return <div className={classNameDiv}>{value}</div>
+  return <div className={className}>{value}</div>
 }
 
-const Heavy2 = ({ a, b }: { a: number; b: number }): JSX.Element => {
+const Heavy2 = ({ a, b }: { a: number; b: number }) => {
   const [value, setValue] = useState(0)
+  console.log("Heavy2")
   useEffect(() => {
-    setValue((p) => {
-      console.log("New Power2")
-      return a ** b
-    })
+    console.log("Heavy2 useEffect")
+    setValue((p) => a ** b)
   }, [a, b])
-  return <div className={classNameDiv}>{value}</div>
+  return <div className={className}>{value}</div>
 }
 
 export const UseMemo2 = () => {
@@ -29,14 +29,14 @@ export const UseMemo2 = () => {
 
   return (
     <div className="flex flex-row items-center justify-center">
-      <div className={classNameDiv}>{count}</div>
-      <button className={classNameBtn} onClick={() => setCount((p) => p + 1)}>
+      <div className={className}>{count}</div>
+      <button className={className} onClick={() => setCount((p) => p + 1)}>
         Count Up
       </button>
 
       {/* 係数を変えない限り、*/}
-      <button className={classNameBtn} onClick={() => setA((p) => p + 1)}>
-        K Up
+      <button className={className} onClick={() => setA((p) => p + 1)}>
+        A Up
       </button>
       <Heavy1 a={a} b={10} />
       <Heavy2 a={a} b={10} />

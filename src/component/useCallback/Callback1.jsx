@@ -1,103 +1,53 @@
 import React, { useState, useCallback } from "react"
 
-const Count = React.memo(({ name, counter, color }) => {
-  console.log(`%cCount ${name}`, `color:${color}`)
+const Count = React.memo(({ counter }) => {
+  console.log(`Count`)
   return (
-    <div style={cssParts}>
-      {name}: {counter}
+    <div className="flex flex-0 m-0 justify-center items-center w-40 border">
+      {counter}
     </div>
   )
 })
 
-const Button = React.memo(({ handleClick, name, color, withE = false }) => {
-  console.log(`%cButton ${name}: wiwithE ${String(withE)}`, `color:${color}`)
+const Button = React.memo(({ handleClick, name }) => {
+  console.log(`Button`, name)
   return (
-    <div style={cssParts}>
-      <button
-        type="button"
-        onClick={handleClick}
-        value={name}
-        style={{ width: "200px" }}
-      >
-        ボタン {name}
-      </button>
-    </div>
+    <button
+      type="button"
+      onClick={handleClick}
+      value="Click"
+      className="flex flex-0 m-0 justify-center items-center w-40 border"
+    >
+      ボタン {name}
+    </button>
   )
 })
 
 export const Callback1 = () => {
-  console.log(`%cCallback1`, "color:red")
-
-  const [counter1, setCounter1] = useState(0)
-  const [counter2, setCounter2] = useState(0)
-
-  const handle1 = () => {
-    console.log(`%chandle1`, "color:orange")
-    setCounter1(counter1 + 1)
-  }
-  const handle1param = (val) => {
-    console.log(`%chandle1(param)`, "color:orange")
-    setCounter1(counter1 + val)
-  }
+  const [counter, setCounter] = useState(0)
 
   //引数なし: useCallback は有効
   const handle2 = useCallback(() => {
     console.log(`%chandle2`, "color:blue")
-    setCounter2(counter2 + 1)
-  }, [counter2])
+    setCounter(counter + 1)
+  }, [counter])
 
   //引数あり: useCallback は無効
   const handle2param = useCallback(
     (val) => {
-      console.log(`%chandle2(param)`, "color:blue")
-      setCounter2(counter2 + val)
+      console.log(`%chandle2`, "color:red")
+      setCounter(counter + val)
     },
-    [counter2]
+    [counter]
   )
 
   return (
     <>
-      <div style={cssDiv}>
-        <Count counter={counter1} name={"1"} color={"orange"} />
-        <Button handleClick={handle1} name={"1"} color={"orange"} />
-        <Button
-          handleClick={() => handle1param(3)}
-          name={"1(true)"}
-          color={"darkOrange"}
-          withE={true}
-        />
-      </div>
-      <div style={cssDiv}>
-        <Count counter={counter2} name={"2"} color={"blue"} />
-        <Button handleClick={handle2} name={"2"} color={"blue"} />
-        <Button
-          handleClick={() => handle2param(3)}
-          name={"2(true)"}
-          color={"darkBlue"}
-          withE={true}
-        />
+      <div className="flex flex-row justify-start">
+        <Count counter={counter} />
+        <Button handleClick={handle2} name="1" />
+        <Button handleClick={() => handle2param(3)} name="2" />
       </div>
     </>
   )
-}
-
-const cssParts = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  marginLeft: "10px",
-  padding: "5px",
-  minWidth: "100px",
-  width: "100%",
-  border: "1px solid #EEE",
-}
-
-const cssDiv = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "start",
-  alignItems: "center",
-  padding: "5px",
-  border: "1px solid #EEE",
 }
