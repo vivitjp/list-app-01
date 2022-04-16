@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
-import { UserContext } from "../AppContextMin";
+import React, { useContext } from "react"
+import { UserContext } from "../AppContextMin"
 
 const Child: React.VFC<{ data: string }> = ({ data }) => {
-  const userData = useContext(UserContext);
+  const userData = useContext(UserContext)
 
   return (
-    <div>User:【{data}】, Context引数:【{userData}】</div>
+    <div>
+      User:{data}, Context引数:{userData}
+    </div>
   )
 }
 

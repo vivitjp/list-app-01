@@ -1,12 +1,11 @@
-import "./App.css"
+//import "./App.css"
 import AppBody from "./component/table/SampleTable"
 import FakeTable from "./component/fake/FakeTable"
 import AppContext from "./component/useContext/AppContext"
 import AppContextMin from "./component/useContextMin/AppContextMin"
 import AppRef from "./component/useRef/AppRef"
+import { Callback } from "./component/React.memo/memo"
 import { Callback1 } from "./component/useCallback/Callback1"
-import { Callback2 } from "./component/useCallback/Callback2"
-import { Callback3 } from "./component/useCallback/Callback3"
 import Selectcompo from "./component/jsx/Selectcompo"
 import AClass from "./component/jsx/AClass"
 import ACompo from "component/jsx/ACompo"
@@ -17,34 +16,52 @@ import AxiosGet from "component/jsx/AxiosGet"
 import User from "component/jsx/User"
 import RandomApp from "component/mocks/RandomApp"
 import { CallbackData } from "component/useCallbackData/CallbackData"
+import { IndexCustomHooks } from "component/customHooks/IndexCustomHooks"
+import { UseReducer } from "component/useReducer/UseReducer"
+import { UseMemo } from "component/useMemo/UseMemo"
+import { UseMemo2 } from "./component/useMemo/UseMemo2"
+import { UseCallback } from "component/useCallback/UseCallback"
+import {
+  UseRefStateSatet,
+  UseRefPointer,
+  UseRefForwarder,
+  //UseRefArray,
+} from "component/useRef/UseRefState"
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">REST & fetch: HEADER</div>
-      <div className="App-body">
-        <div className="App-body-scroll">
-          {false && <AppBody />}
-          {false && <FakeTable />}
-          {false && <AppContext />}
-          {false && <AppContextMin />}
-          {false && <AppRef />}
-          {false && <CallbackData />}
-          {true && <Callback1 />}
-          {true && <Callback2 />}
-          {true && <Callback3 />}
-          {false && <Selectcompo />}
-          {false && <AClass />}
-          {false && <ACompo />}
-          {false && <Timer />}
-          {false && <AForm />}
-          {false && <Login />}
-          {false && <AxiosGet />}
-          {false && <User id={1} />}
-          {false && <RandomApp />}
-        </div>
+    <div className="flex flex-col justify-between p-0 m-0 overflow-hidden h-screen">
+      <div className="flex flex-row justify-center items-center w-full h-16 m-0 overflow-hidden text-3xl bg-gray-300 text-gray-500">
+        REST & fetch: HEADER
       </div>
-      <div className="App-footer">REST & fetch: FOOTER</div>
+      <div className="flex-grow p-0 m-0 overflow-y-scroll justify-center h-max">
+        {false && <AppBody />}
+        {false && <FakeTable />}
+        {false && <AppContext />}
+        {false && <AppContextMin />}
+        {false && <AppRef />}
+        {false && <UseCallback />}
+        {false && <CallbackData />}
+        {false && <Callback />}
+        {false && <Callback1 />}
+        {false && <Selectcompo />}
+        {false && <AClass />}
+        {false && <ACompo />}
+        {false && <Timer />}
+        {false && <AForm />}
+        {false && <Login />}
+        {false && <AxiosGet />}
+        {false && <User id={1} />}
+        {false && <RandomApp />}
+        {false && <IndexCustomHooks />}
+        {false && <UseReducer />}
+        {false && <UseMemo />}
+        {true && <UseMemo2 />}
+        {false && <UseRefForwarder />}
+      </div>
+      <div className="relative bottom-0 flex flex-row justify-center items-center w-full py-3 m-0 text-base bg-slate-300 text-gray-400 ">
+        REST & fetch: FOOTER
+      </div>
     </div>
   )
 }

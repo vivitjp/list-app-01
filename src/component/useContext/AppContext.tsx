@@ -1,18 +1,19 @@
 import { createContext } from "react"
-import Child from './children/Child'
+import Child from "./children/Child"
 
 const userData = {
-  "userid": "john123", "password": "asd", "act": true
+  userid: "john123",
+  password: "asd",
 }
 interface IUserData {
-  [name: string]: string | number | boolean
+  [name: string]: string
 }
 export const UserContext = createContext<IUserData>({})
 
 const AppContext = (): JSX.Element => {
   return (
-    <UserContext.Provider value={userData} >
-      <Child data={{ name: "john" }} />
+    <UserContext.Provider value={userData}>
+      <Child />
     </UserContext.Provider>
   )
 }
