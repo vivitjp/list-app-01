@@ -1,6 +1,5 @@
 import React, { useContext } from "react"
-import { UserContext } from "../AppContext"
-import styles from "./Child.module.scss"
+import { UserContext } from "../UseContext"
 
 const Child = () => {
   const userData = useContext(UserContext)
@@ -11,11 +10,14 @@ const Child = () => {
         {userData &&
           Object.entries(userData).map(([name, value]: [string, string]) => {
             return (
-              <div key={name} className={styles.cls_line}>
-                <span className={styles.cls_cell} style={{ minWidth: "7rem" }}>
+              <div key={name} className="flex flex-row">
+                <span
+                  className="flex flex-0 m-0 border"
+                  style={{ minWidth: "7rem" }}
+                >
                   {name}
                 </span>
-                <span className={styles.cls_cell}>{value}</span>
+                <span className="flex flex-0 m-0 border">{value}</span>
               </div>
             )
           })}

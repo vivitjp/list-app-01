@@ -10,12 +10,10 @@ interface IUserData {
 }
 export const UserContext = createContext<IUserData>({})
 
-const AppContext = (): JSX.Element => {
+export const UseContext = (): JSX.Element => {
   return (
     <UserContext.Provider value={userData}>
       <Child />
     </UserContext.Provider>
   )
 }
-
-export default AppContext

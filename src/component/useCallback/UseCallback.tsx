@@ -1,50 +1,52 @@
-import React from "react"
-import { useCallback, useState } from "react"
+import React, { useState, useCallback } from "react"
 
-const Compo = ({ id }: { id: number }) => {
-  console.log("id", id)
-  const [val, setVal] = useState(0)
-  const callback = () => {
-    console.log("id callback", id)
-    setVal(Math.round(Math.random() * 10))
-  }
-  // const callback = useCallback(() => {
-  //   console.log("id callback", id)
-  //   setVal(Math.round(Math.random() * 10))
-  // }, [id])
-
-  return (
-    <div className="flex flex-row">
-      <div className="p-3 border">{val}</div>
-      <input
-        className="p-3 border"
-        type="button"
-        onClick={callback}
-        value={`Click ${id}`}
-      />
-    </div>
-  )
+//引数に useCallbackを使用しない handler などが含まれていると
+//memo の効力はなくなる
+type Props = {
+  val: string
+  handler: (val: string) => void
+  id: string
 }
+const Input = React.memo(({ val, handler, id }: Props) => {
+  console.log(`Input Memo ${id}`)
+  return (
+    <input
+      onChange={(e) => handler(e.currentTarget.value)}
+      value={val}
+      className="flex flex-0 m-0 border p-3"
+    />
+  )
+})
 
 export const UseCallback = () => {
-  const [num, setNum] = useState(1)
-  const addnum = () => {
-    setNum((p) => p + 1)
+  const [count, setCount] = useState(0)
+  const [stateCB, setStateCB] = useState("")
+  const [state, setState] = useState("")
+
+  //useCallback + Memo
+  const handleCB = useCallback((val: string) => {
+    console.log(`%chandle`, "color:blue")
+    setStateCB(val)
+  }, [])
+
+  //Memo(再描画対象)
+  const handle = (val: string) => {
+    console.log(`%chandle`, "color:green")
+    setState(val)
   }
 
   return (
     <>
-      <div className="flex flex-row">
-        <div className="p-3 border">{num}</div>
+      <div className="flex flex-row justify-start">
         <input
-          className="p-3 border"
           type="button"
-          onClick={addnum}
-          value={"Click Local"}
+          onClick={() => setCount((p) => p + 1)}
+          value={`Count ${count}`}
+          className="flex flex-0 m-0 border p-3"
         />
+        <Input val={stateCB} handler={handleCB} id={"CB"} />
+        <Input val={state} handler={handle} id={"Non"} />
       </div>
-      <Compo id={1} />
-      <Compo id={2} />
     </>
   )
 }
