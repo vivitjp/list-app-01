@@ -5,7 +5,7 @@ import AppContext from "./component/useContext/AppContext"
 import AppContextMin from "./component/useContextMin/AppContextMin"
 import AppRef from "./component/useRef/AppRef"
 import { Memo } from "./component/React.memo/memo"
-import { Callback1 } from "./component/useCallback/Callback1"
+import { Callback } from "./component/useCallback/Callback1"
 import Selectcompo from "./component/jsx/Selectcompo"
 import AClass from "./component/jsx/AClass"
 import ACompo from "component/jsx/ACompo"
@@ -42,7 +42,7 @@ function App() {
         {false && <AppRef />}
         {false && <UseCallback />}
         {false && <CallbackData />}
-        {true && <Callback1 />}
+        {true && <Callback />}
         {false && <Selectcompo />}
         {false && <AClass />}
         {false && <ACompo />}
