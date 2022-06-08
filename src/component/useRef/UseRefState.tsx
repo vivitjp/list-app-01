@@ -1,5 +1,4 @@
-import React, { useEffect } from "react"
-import { ChangeEvent, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 //--------------------------------
 // State
@@ -26,71 +25,3 @@ export function UseRefStateSatet() {
     </div>
   )
 }
-
-//--------------------------------
-// Pointer
-//--------------------------------
-export function UseRefPointer() {
-  const btnRef = useRef<HTMLInputElement>(null!)
-
-  const handle = () => {
-    btnRef.current.focus()
-  }
-
-  const divRef = useRef<HTMLDivElement>(null!)
-
-  const change = (e: ChangeEvent<HTMLInputElement>) => {
-    divRef.current.innerHTML = e.currentTarget.value
-  }
-
-  return (
-    <div className="flex flex-col border w-full">
-      <div className="flex flex-row justify-start items-center p-3 w-full">
-        <button className="w-30 border m-1" onClick={handle}>
-          input1
-        </button>
-        <input
-          type="text"
-          className="w-50 border m-1 p-2"
-          ref={btnRef}
-          onChange={change}
-        />
-        <div className="w-50 border m-1 p-2" ref={divRef} />
-      </div>
-    </div>
-  )
-}
-
-//--------------------------------
-// UseRefArray
-//--------------------------------
-// export const UseRefArray = () => {
-//   const cells = ["name", "addr", "zip"]
-//   const refs = useRef<React.RefObject<unknown>[]>(
-//     Array.from({ length: cells.length }, (a) => React.createRef())
-//   )
-//   // const refs = useRef<RefObject<unknown[]>>(null!)
-//   // cells.forEach((_, i) => {
-//   //   refs.current[i] = createRef<unknown>()
-//   // })
-
-//   const handleSubmit = (e) => {
-//     cells.map((n, i) => {
-//       console.log(refs.current[i].current.value) //二重current
-//     })
-//     e.preventDefault()
-//   }
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       {cells.map((cell, i) => {
-//         return (
-//           <p key={cell}>
-//             <MyInput ref={refs.current[i]} value={cell} />
-//           </p>
-//         )
-//       })}
-//       <input type="submit" value="Submit" />
-//     </form>
-//   )
-// }

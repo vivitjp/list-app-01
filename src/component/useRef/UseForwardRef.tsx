@@ -1,12 +1,5 @@
-import React from "react"
 import { ChangeEvent, useEffect, useRef, useState } from "react"
-
-const MyInput = React.forwardRef<
-  HTMLInputElement,
-  JSX.IntrinsicElements["input"]
->((props, ref) => {
-  return <input type="text" {...props} ref={ref} />
-})
+import { UseForwardInput } from "./UseForwardInput"
 
 export const UseRefForwarder = () => {
   const [val, setVal] = useState("Hello")
@@ -20,5 +13,5 @@ export const UseRefForwarder = () => {
     setVal(e.currentTarget.value)
   }
 
-  return <MyInput ref={el} value={val} onChange={handle} />
+  return <UseForwardInput ref={el} value={val} onChange={handle} />
 }
